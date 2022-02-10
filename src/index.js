@@ -25,7 +25,7 @@ import save from './save';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-registerBlockType('mathquill-math/direct-math-input', {
+registerBlockType('math-input-mathquill/direct-math-input', {
 	icon: 'calculator',
 	category: 'embed',
 

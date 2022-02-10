@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "mathquill-math/direct-math-input",
+	"name": "math-input-mathquill/direct-math-input",
 	"version": "0.1.0",
 	"title": "Direct math input",
 	"category": "widgets",

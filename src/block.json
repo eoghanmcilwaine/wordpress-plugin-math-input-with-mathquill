@@ -1,16 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "create-block/mathquill-block",
+	"name": "mathquill-math/direct-math-input",
 	"version": "0.1.0",
-	"title": "Mathquill Block",
+	"title": "Direct math input",
 	"category": "widgets",
-	"icon": "smiley",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
+	"icon": "calculator",
+	"description": "Type math expressions directly into your page with MathQuill/LaTeX.",
 	"supports": {
-		"html": false
+		"html": true
 	},
-	"textdomain": "mathquill-block",
+	"keywords": ["math", "MathQuill", "LaTeX", "formula", "equation", "typesetting", "MathML"],
+	"textdomain": "direct-math-input",
 	"editorScript": "file:./index.js",
 	"script": "file:./display.js",
 	"editorStyle": "file:./index.css",

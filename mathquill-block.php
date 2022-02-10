@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:       Mathquill Block
- * Description:       Example block written with ESNext standard and JSX support – build step required.
+ * Plugin Name:       Direct Math Input
+ * Description:       Type math expressions directly into your page with MathQuill/LaTeX.
  * Requires at least: 5.8
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            Eoghan McIlwaine  <mcilwaine@gmail.com>
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       mathquill-block
+ * Text Domain:       direct-math-input
  *
- * @package           create-block
+ * @package           mathquill-math
  */
 
 /**
@@ -26,6 +26,9 @@ function create_block_mathquill_block_block_init() {
 add_action( 'init', 'create_block_mathquill_block_block_init' );
 
 
+/**
+ * Register the JS to render math on the page in display (non-editor) mode.
+ */
 function create_block_mathquill_block_enqueue_script()
 {   
     wp_enqueue_script( 'mathquill_block_display_script', plugin_dir_url( __FILE__ ) . '/build/display.js' );

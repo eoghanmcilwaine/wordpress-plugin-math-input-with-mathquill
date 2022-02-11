@@ -27,10 +27,21 @@ add_action( 'init', 'create_block_mathquill_block_block_init' );
 
 
 /**
- * Register the JS to render math on the page in display (non-editor) mode.
+ * Register the JS/styles to render math on the page in display (non-editor) mode.
  */
 function create_block_mathquill_block_enqueue_script()
 {   
     wp_enqueue_script( 'mathquill_block_display_script', plugin_dir_url( __FILE__ ) . '/build/display.js' );
 }
 add_action('wp_enqueue_scripts', 'create_block_mathquill_block_enqueue_script');
+
+
+function create_block_mathquill_block_enqueue_style()
+{   
+    wp_enqueue_style(
+      'mathquill_block_display_style',
+      plugin_dir_url( __FILE__ ) . '/build/display.css',
+      array( 'wp-editor' )
+    );
+}
+add_action('enqueue_block_assets', 'create_block_mathquill_block_enqueue_style');

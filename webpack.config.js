@@ -5,7 +5,37 @@ const defaultConfig = require('@wordpress/scripts/config/webpack.config');
  */
 const excludedFontFiles = [/Symbola\.ttf/, /Symbola\.eot/, /Symbola\.svg/, /Symbola\.woff$/];
 
-
+/**
+ * 
+ * Override default cssloader settings to filter out the unwanted font
+ * files as described here:
+ * https://webpack.js.org/loaders/css-loader/
+ * 
+ * This is done by adding an extra options.url.filter() to the
+ * css-loader rules which are initially set up here:
+ * https://github.com/WordPress/gutenberg/blob/c034da18/packages/scripts/config/webpack.config.js#L43-L51
+ *
+ */
+const cssLoaderUsesIgnoringFonts = uses => {
+  return (uses || []).map(use => {
+    if (use.loader.includes('/css-loader/')) {
+      return {
+        ...use,
+        options: {
+          ...use.options,
+          url: {
+            ...use.options?.url,
+            filter: function(url) {
+              return !excludedFontFiles.some(font => font.test(url));
+            }
+          }
+        }
+      }
+    } else {
+      return use;
+    }
+  });
+}
 
 /**
  * 
@@ -45,40 +75,10 @@ const rules = (defaultConfig?.module?.rules || []).map(rule => {
             };
         }
 
-        // Exclude other versions of font file
-        // if (
-        //     type === 'asset/resource' &&
-        //     test.test('.ttf')
-        // ) {
-        //     newRule = {
-        //         ...rule,
-        //         exclude: excludedFontFiles
-        //     };
-        // }
-
         if (test.test('.css')) {
-          const newUses = (rule.use || []).map(use => {
-            if (use.loader.includes('/css-loader/')) {
-              return {
-                ...use,
-                options: {
-                  ...use.options,
-                  url: {
-                    ...use.options?.url,
-                    filter: function(url) {
-                      return !excludedFontFiles.some(font => font.test(url));
-                    }
-                  }
-                }
-              }
-            } else {
-              return use;
-            }
-          });
-
           newRule = {
             ...rule,
-            use: newUses
+            use: cssLoaderUsesIgnoringFonts(rule.use)
           };
         }
     } 
@@ -94,7 +94,5 @@ const myConfig = {
         ]
     }
 };
-
-//console.log(myConfig);
 
 module.exports = myConfig;

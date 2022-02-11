@@ -26,8 +26,12 @@ import save from './save';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType('math-input-with-mathquill/direct-math-input', {
-	icon: 'calculator',
-	category: 'embed',
+	example: {
+		attributes: {
+			mode: 'preview',
+			latex: '\\[\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}\\]'
+		},
+	},
 
 	/**
 	 * @see ./edit.js

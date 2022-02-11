@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Direct Math Input
+ * Plugin Name:       Math input with MathQuill
  * Description:       Type math expressions directly into your page with MathQuill/LaTeX.
  * Requires at least: 5.8
  * Requires PHP:      7.0
@@ -10,7 +10,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       direct-math-input
  *
- * @package           math-input-mathquill
+ * @package           math-input-with-mathquill
  */
 
 /**

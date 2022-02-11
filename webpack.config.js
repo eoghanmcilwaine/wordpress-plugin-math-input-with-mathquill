@@ -51,7 +51,7 @@ const cssLoaderUsesIgnoringFonts = uses => {
  *   issuer: /\.(sc|sa|c)ss$/,
  *   type: 'asset/inline',
  * },
- * https://github.com/WordPress/gutenberg/blob/c034da18f3b53ac741bedb0258dd95e050502f86/packages/scripts/config/webpack.config.js#L196-L200
+ * https://github.com/WordPress/gutenberg/blob/c034da18/packages/scripts/config/webpack.config.js#L196-L200
  *
  * We need to override this to exclude this particular font file from
  * inline loading.

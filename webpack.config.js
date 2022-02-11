@@ -75,7 +75,7 @@ const rules = (defaultConfig?.module?.rules || []).map(rule => {
             };
         }
 
-        if (test.test('.css')) {
+        if (test.test('.css') || test.test('.scss')) {
           newRule = {
             ...rule,
             use: cssLoaderUsesIgnoringFonts(rule.use)

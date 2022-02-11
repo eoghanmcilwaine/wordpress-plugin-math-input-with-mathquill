@@ -1,9 +1,5 @@
-import { addStyles, StaticMathField } from 'react-mathquill'
+import { StaticMathField } from 'react-mathquill'
 import { unwrapBlockDelims } from './utils';
-
-// inserts the required css to the <head> block.
-// you can skip this, if you want to do that by yourself.
-addStyles();
 
 const StaticMath = ({ latex }) => (
   <>

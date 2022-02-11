@@ -1,5 +1,5 @@
 {
-	"name": "direct-math-input",
+	"name": "math-input-with-mathquill",
 	"version": "0.1.0",
 	"description": "Type math expressions directly into your page with MathQuill/LaTeX.",
 	"author": "Eoghan McIlwaine <mcilwaine@gmail.com>",

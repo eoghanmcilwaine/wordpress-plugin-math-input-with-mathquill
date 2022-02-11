@@ -11,6 +11,9 @@ coverage
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
+# Font files from mathquill
+build/fonts
+
 # Dependency directories
 node_modules/
 

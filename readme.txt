@@ -1,6 +1,6 @@
 === Direct math input with MathQuill ===
-Contributors:      Eoghan McIlwaine <mcilwaine@gmail.com>
-Tags:              block
+Contributors:      eoghanmcilwaine
+Tags:              block, math, LaTeX, MathQuill, equation, formula
 Tested up to:      5.9
 Stable tag:        0.1.1
 License:           GPL-2.0-or-later

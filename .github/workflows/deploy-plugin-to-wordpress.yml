@@ -13,6 +13,14 @@ jobs:
       run: |
         npm install
         npm run build
+        cd "$GITHUB_WORKSPACE"
+        # Ensure built stuff is included in this temporary workspace
+        # repo, as the deploy script will send it to SVN from here.
+        # - Just make sure this doesn't get pushed back upstream
+        git config --global user.email "deploybot@example.com"
+        git config --global user.name "DeployBot on GitHub"
+        git add --force build/fonts/* && git commit -m "Add any font files"
+        cd -
     - name: WordPress Plugin Deploy
       uses: 10up/action-wordpress-plugin-deploy@stable
       env:

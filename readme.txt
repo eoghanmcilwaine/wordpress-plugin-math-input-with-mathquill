@@ -9,7 +9,8 @@ License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Type complex math expressions easily into your wordpress page using [http://mathquill.com/](MathQuill).
+
+Type complex math expressions easily into your wordpress page using MathQuill (http://mathquill.com/). This plugin adds a new block editor called "Direct math input" in the "widgets" category.
 
 Math expressions are saved in LaTeX format and rendered by MathQuill during pageview.
 
@@ -24,3 +25,12 @@ e.g.
 
 == Screenshots ==
 
+1. The "Direct math input" block in the blocks list, and a sample equation in the editor.
+
+== Changelog ==
+
+= 0.1.1 =
+* Fixed an issue preventing the math rendering with the correct font file
+
+= 0.1.0 =
+* Original MVP

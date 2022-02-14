@@ -3,13 +3,12 @@ Contributors:      eoghanmcilwaine
 Donate link:       https://www.paypal.com/donate/?business=QYT8UT3FHC3VL&no_recurring=1&currency_code=EUR
 Tags:              block, math, LaTeX, MathQuill, equation, formula
 Tested up to:      5.9
-Stable tag:        0.1.1
+Stable tag:        0.1.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Description ==
-
 
 Type complex math expressions easily into your wordpress page using MathQuill (http://mathquill.com/). This plugin adds a new block editor called "Direct math input" in the "widgets" category.
 
@@ -29,6 +28,11 @@ e.g.
 1. The "Direct math input" block in the blocks list, and a sample equation in the editor.
 
 == Changelog ==
+
+= 0.1.2 =
+* Improved the plugin description
+* Added a screenshot showing usage
+* Added assets for banner and icon
 
 = 0.1.1 =
 * Fixed an issue preventing the math rendering with the correct font file

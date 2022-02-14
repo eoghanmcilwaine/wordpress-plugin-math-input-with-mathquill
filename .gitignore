@@ -17,6 +17,9 @@ build/fonts
 # Dependency directories
 node_modules/
 
+# Local binary assets for icons/banners etc.
+design/
+
 # Optional npm cache directory
 .npm
 

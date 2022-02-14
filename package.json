@@ -1,6 +1,6 @@
 {
 	"name": "math-input-with-mathquill",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "Type math expressions directly into your page with MathQuill/LaTeX.",
 	"author": "eoghanmcilwaine",
 	"license": "GPL-2.0-or-later",

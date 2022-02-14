@@ -1,5 +1,6 @@
 === Direct math input with MathQuill ===
 Contributors:      eoghanmcilwaine
+Donate link:       https://www.paypal.com/donate/?business=QYT8UT3FHC3VL&no_recurring=1&currency_code=EUR
 Tags:              block, math, LaTeX, MathQuill, equation, formula
 Tested up to:      5.9
 Stable tag:        0.1.1

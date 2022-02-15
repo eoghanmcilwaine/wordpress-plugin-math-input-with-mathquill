@@ -14,7 +14,7 @@ Type complex math expressions easily into your wordpress page using MathQuill (h
 
 Math expressions are saved in LaTeX format and rendered by MathQuill during pageview.
 
-== Usage ==
+= Usage =
 
 After installing, a new block editor called 'Direct math input' will be available. Each block contains a MathQuill instance 
 where you can edit math right on your page.
@@ -79,6 +79,13 @@ Escape sequences - type these in including the backslash, followed by enter: (no
 \Reals           ℝ
 …etc.
 
+== Frequently Asked Questions ==
+
+= How do I start using this? =
+
+Create a new 'Direct math input' block from the gutenberg blocks list.
+Start typing math straight into your block using some of the symbols listed in the
+plugin description.
 
 == Installation ==
 

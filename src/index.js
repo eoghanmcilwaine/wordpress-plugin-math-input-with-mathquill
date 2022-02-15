@@ -20,6 +20,7 @@ import '@edtr-io/mathquill/build/mathquill.css';
  */
 import Edit from './edit';
 import save from './save';
+import BlockIcon from './BlockIcon';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -33,6 +34,8 @@ registerBlockType('math-input-with-mathquill/direct-math-input', {
 			latex: '\\[\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}\\]'
 		},
 	},
+
+	icon: BlockIcon,
 
 	/**
 	 * @see ./edit.js

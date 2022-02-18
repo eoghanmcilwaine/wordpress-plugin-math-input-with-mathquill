@@ -3,7 +3,7 @@ Contributors:      eoghanmcilwaine
 Donate link:       https://www.paypal.com/donate/?business=QYT8UT3FHC3VL&no_recurring=1&currency_code=EUR
 Tags:              block, math, LaTeX, MathQuill, equation, formula
 Tested up to:      5.9
-Stable tag:        0.1.2
+Stable tag:        0.2.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -102,6 +102,11 @@ e.g.
 1. Using the "Direct math input" block to insert some equations.
 
 == Changelog ==
+
+= 0.2.0 =
+* Added some toolbar buttons to create math symbols
+* Added a custom icon for the block editor
+* Added some usage information and FAQ
 
 = 0.1.2 =
 * Improved the plugin description

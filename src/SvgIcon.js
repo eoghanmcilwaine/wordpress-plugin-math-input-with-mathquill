@@ -1,6 +1,6 @@
-import blockLogo from '../assets/block-logo.svg';
-import fraction from '../assets/fraction.svg';
-import squareRoot from '../assets/square-root.svg';
+import blockLogo from '../svg/block-logo.svg';
+import fraction from '../svg/fraction.svg';
+import squareRoot from '../svg/square-root.svg';
 
 const CustomIcons = {
   blockLogo,

@@ -20,7 +20,7 @@ import '@edtr-io/mathquill/build/mathquill.css';
  */
 import Edit from './edit';
 import save from './save';
-import BlockIcon from './BlockIcon';
+import SvgIcon from './SvgIcon';
 
 /**
  * Every block starts by registering a new block type definition.
@@ -35,7 +35,7 @@ registerBlockType('math-input-with-mathquill/direct-math-input', {
 		},
 	},
 
-	icon: BlockIcon,
+	icon: <SvgIcon id="blockLogo" />,
 
 	/**
 	 * @see ./edit.js

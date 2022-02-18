@@ -1,3 +1,10 @@
+import { useState, Fragment } from '@wordpress/element';
+import { BlockControls } from '@wordpress/block-editor';
+import {
+	ToolbarGroup,
+	ToolbarButton,
+} from '@wordpress/components';
+
 /**
  * Retrieves the translation of text.
  *
@@ -21,7 +28,31 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 import './editor.scss';
 import MathField from './MathField';
-import { useState } from 'react'
+import SvgIcon from './SvgIcon';
+
+
+// const FractionIcon = () => <SvgIcon id="fraction" />;
+
+const BlockControlsForMath = () => (
+	<BlockControls group="inline">
+		<ToolbarGroup>
+			<ToolbarButton
+				icon={<SvgIcon id="fraction" />}
+				label={ __( 'Custom Button', 'core-block-custom-attributes' ) }
+				onClick={ () => {
+						console.log('clicked button');
+				}}
+			/>
+			<ToolbarButton
+				icon={<SvgIcon id="squareRoot" />}
+				label={ __( 'Custom Button', 'core-block-custom-attributes' ) }
+				onClick={ () => {
+						console.log('clicked button 2');
+				}}
+			/>
+		</ToolbarGroup>
+	</BlockControls>
+);
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -40,8 +71,11 @@ export default function Edit({ attributes, setAttributes }) {
 	};
 
 	return (
-		<p {...useBlockProps()}>
-			<MathField latex={latex} setLatex={updateLatex} />
-		</p>
+		<Fragment>
+			<BlockControlsForMath />
+			<p {...useBlockProps()}>
+				<MathField latex={latex} setLatex={updateLatex} />
+			</p>
+		</Fragment>
 	);
 }

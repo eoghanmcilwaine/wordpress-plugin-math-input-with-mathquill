@@ -1,4 +1,4 @@
-import { useState, Fragment } from '@wordpress/element';
+import { useCallback, useState, useRef, Fragment } from '@wordpress/element';
 import { BlockControls } from '@wordpress/block-editor';
 import {
 	ToolbarGroup,
@@ -29,25 +29,35 @@ import { useBlockProps } from '@wordpress/block-editor';
 import './editor.scss';
 import MathField from './MathField';
 import SvgIcon from './SvgIcon';
+import { buildFailureTestResult } from '@jest/test-result';
 
 
 // const FractionIcon = () => <SvgIcon id="fraction" />;
 
-const BlockControlsForMath = () => (
+const MathButton = ({ icon, label, onClick }) => (
+	<ToolbarButton
+		icon={<SvgIcon id={icon} />}
+		label={ __( label, 'core-block-custom-attributes' ) }
+		onMouseDown={e => e.preventDefault()}
+		onClick={onClick}
+	/>
+);
+
+const BlockControlsForMath = ({ callEditorMethod }) => (
 	<BlockControls group="inline">
 		<ToolbarGroup>
-			<ToolbarButton
-				icon={<SvgIcon id="fraction" />}
-				label={ __( 'Custom Button', 'core-block-custom-attributes' ) }
-				onClick={ () => {
-						console.log('clicked button');
+			<MathButton
+				icon="fraction"
+				label="Fraction"
+				onClick={() => {
+					callEditorMethod('typedText', '/');
 				}}
 			/>
-			<ToolbarButton
-				icon={<SvgIcon id="squareRoot" />}
-				label={ __( 'Custom Button', 'core-block-custom-attributes' ) }
-				onClick={ () => {
-						console.log('clicked button 2');
+			<MathButton
+				icon="squareRoot"
+				label="Square Root"
+				onClick={() => {
+					callEditorMethod('cmd', 'sqrt');
 				}}
 			/>
 		</ToolbarGroup>
@@ -64,17 +74,28 @@ const BlockControlsForMath = () => (
  */
 export default function Edit({ attributes, setAttributes }) {
 	const [latex, setLatex] = useState(attributes.latex);
+	const field = useRef();
 
 	const updateLatex = newLatex => {
 		setLatex(newLatex);
 		setAttributes({ latex: newLatex });
 	};
+	const updateRef = mathField => field.current = mathField;
+	const callEditorMethod = useCallback((method, ...args) => {
+		if (field.current) {
+			field.current[method](...args);
+		}
+	});
 
 	return (
 		<Fragment>
-			<BlockControlsForMath />
+			<BlockControlsForMath callEditorMethod={callEditorMethod} />
 			<p {...useBlockProps()}>
-				<MathField latex={latex} setLatex={updateLatex} />
+				<MathField
+					latex={latex}
+					setLatex={updateLatex}
+					updateRef={updateRef}
+				/>
 			</p>
 		</Fragment>
 	);

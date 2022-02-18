@@ -99,7 +99,7 @@ e.g.
 
 == Screenshots ==
 
-1. The "Direct math input" block in the blocks list, and a sample equation in the editor.
+1. Using the "Direct math input" block to insert some equations.
 
 == Changelog ==
 

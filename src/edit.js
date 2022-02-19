@@ -33,14 +33,13 @@ import SvgIcon from './SvgIcon';
 // import { buildFailureTestResult } from '@jest/test-result';
 
 
-const MathButton = ({ icon, label, disabled, onClick, insertion }) => {
+const MathButton = ({ icon, label, onClick, insertion }) => {
 	const handlers = insertion && {
 		onMouseDown: e => e.preventDefault()
 	};
 
 	return (
 		<ToolbarButton
-			disabled={disabled}
 			icon={<SvgIcon id={icon} />}
 			label={ __( label, 'core-block-custom-attributes' ) }
 			onClick={onClick}
@@ -54,16 +53,17 @@ MathButton.defaultProps = {
 };
 
 const CopyLatexButton = ({ latex }) => {
-	const isDisabled = !navigator.clipboard;
+	const isAvailable = !!navigator.clipboard;
 
 	return (
 		<MathButton
 			icon="copyLatex"
-			label="Copy LaTeX math to clipboard"
+			label={isAvailable ? "Copy LaTeX math to clipboard" : 'Sorry, clipboard is only available on https sites in supported browsers'}
 			insertion={false}
-			disabled={isDisabled}
 			onClick={() => {
-				navigator.clipboard.writeText(unwrapBlockDelims(latex))
+				if (isAvailable) {
+					navigator.clipboard.writeText(unwrapBlockDelims(latex))
+				}
 			}}
 		/>
 	)

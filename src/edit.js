@@ -4,6 +4,7 @@ import {
 	ToolbarGroup,
 	ToolbarButton,
 } from '@wordpress/components';
+import { unwrapBlockDelims } from './utils';
 
 /**
  * Retrieves the translation of text.
@@ -29,23 +30,39 @@ import { useBlockProps } from '@wordpress/block-editor';
 import './editor.scss';
 import MathField from './MathField';
 import SvgIcon from './SvgIcon';
-import { buildFailureTestResult } from '@jest/test-result';
+// import { buildFailureTestResult } from '@jest/test-result';
 
 
-// const FractionIcon = () => <SvgIcon id="fraction" />;
+const MathButton = ({ icon, label, onClick, insertion }) => {
+	const handlers = insertion && {
+		onMouseDown: e => e.preventDefault()
+	};
 
-const MathButton = ({ icon, label, onClick }) => (
-	<ToolbarButton
-		icon={<SvgIcon id={icon} />}
-		label={ __( label, 'core-block-custom-attributes' ) }
-		onMouseDown={e => e.preventDefault()}
-		onClick={onClick}
-	/>
-);
+	return (
+		<ToolbarButton
+			icon={<SvgIcon id={icon} />}
+			label={ __( label, 'core-block-custom-attributes' ) }
+			onClick={onClick}
+			{...handlers}
+		/>
+	);
+};
 
-const BlockControlsForMath = ({ callEditorMethod }) => (
+MathButton.defaultProps = {
+	insertion: true,
+};
+
+const BlockControlsForMath = ({ callEditorMethod, latex }) => (
 	<BlockControls group="inline">
 		<ToolbarGroup>
+			<MathButton
+				icon="copyLatex"
+				label="Copy LaTeX math to clipboard"
+				insertion={false}
+				onClick={() => {
+					navigator.clipboard.writeText(unwrapBlockDelims(latex))
+				}}
+			/>
 			<MathButton
 				icon="fraction"
 				label="Fraction"
@@ -89,7 +106,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<Fragment>
-			<BlockControlsForMath callEditorMethod={callEditorMethod} />
+			<BlockControlsForMath callEditorMethod={callEditorMethod} latex={latex} />
 			<p {...useBlockProps()}>
 				<MathField
 					latex={latex}

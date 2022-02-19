@@ -58,7 +58,7 @@ const CopyLatexButton = ({ latex }) => {
 	return (
 		<MathButton
 			icon="copyLatex"
-			label={isAvailable ? "Copy LaTeX math to clipboard" : 'Sorry, clipboard is only available on https sites in supported browsers'}
+			label={isAvailable ? "Copy LaTeX math to clipboard" : 'Sorry, clipboard is only available on https:// sites, in supported browsers'}
 			insertion={false}
 			onClick={() => {
 				if (isAvailable) {

@@ -23,13 +23,17 @@ When the math editor is focused, you can enter math symbols using your keyboard 
 See the http://mathquill.com/ homepage for a visual demonstration of how to input math. 
 
 Some common keyboard shortcuts are as follows:
-/                enter a new fraction, with focusable input areas for numerator and denominator.
-^                enter a new superscript, e.g. to add an exponent
-_                enter a new subscript
-(                open parentheses (which will scale based on the height of the content inside) Other parenthesis types behave similarly, e.g. [ and {
-\                backslash allows you to start typing one of the escape sequences below. When finished, press enter or space to see the resulting symbol.
 
-Escape sequences - type these in including the backslash, followed by enter: (not an exhaustive list)
+| Key | Action                                                                                                                                |
+|-----|---------------------------------------------------------------------------------------------------------------------------------------|
+| /   | Enter a new fraction, with focusable input areas for numerator and denominator.                                                       |
+| ^   | Enter a new superscript, e.g. to add an exponent                                                                                      |
+| _   | Enter a new subscript                                                                                                                 |
+| (   | Open parentheses (which will scale based on the height of the content inside) Other parenthesis types behave similarly, e.g. [ and {  |
+| \   | Start typing one of the control sequences below. When finished, press enter or space to see the resulting symbol.                     |
+
+
+Control sequences - type these in including the backslash, followed by enter: (not an exhaustive list)
 
 \plusminus       plus-or-minus symbol, ±
 \times           multiplication symbol, ×

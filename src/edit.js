@@ -87,6 +87,20 @@ const BlockControlsForMath = ({ callEditorMethod, latex }) => (
 					callEditorMethod('cmd', 'sqrt');
 				}}
 			/>
+			<MathButton
+				icon="superscript"
+				label="Superscript"
+				onClick={() => {
+					callEditorMethod('typedText', '^');
+				}}
+			/>
+			<MathButton
+				icon="subscript"
+				label="Subscript"
+				onClick={() => {
+					callEditorMethod('typedText', '_');
+				}}
+			/>
 		</ToolbarGroup>
 	</BlockControls>
 );

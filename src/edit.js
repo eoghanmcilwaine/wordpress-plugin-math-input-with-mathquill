@@ -33,13 +33,14 @@ import SvgIcon from './SvgIcon';
 // import { buildFailureTestResult } from '@jest/test-result';
 
 
-const MathButton = ({ icon, label, onClick, insertion }) => {
+const MathButton = ({ icon, label, disabled, onClick, insertion }) => {
 	const handlers = insertion && {
 		onMouseDown: e => e.preventDefault()
 	};
 
 	return (
 		<ToolbarButton
+			disabled={disabled}
 			icon={<SvgIcon id={icon} />}
 			label={ __( label, 'core-block-custom-attributes' ) }
 			onClick={onClick}
@@ -52,17 +53,26 @@ MathButton.defaultProps = {
 	insertion: true,
 };
 
+const CopyLatexButton = ({ latex }) => {
+	const isDisabled = !navigator.clipboard;
+
+	return (
+		<MathButton
+			icon="copyLatex"
+			label="Copy LaTeX math to clipboard"
+			insertion={false}
+			disabled={isDisabled}
+			onClick={() => {
+				navigator.clipboard.writeText(unwrapBlockDelims(latex))
+			}}
+		/>
+	)
+}
+
 const BlockControlsForMath = ({ callEditorMethod, latex }) => (
 	<BlockControls group="inline">
 		<ToolbarGroup>
-			<MathButton
-				icon="copyLatex"
-				label="Copy LaTeX math to clipboard"
-				insertion={false}
-				onClick={() => {
-					navigator.clipboard.writeText(unwrapBlockDelims(latex))
-				}}
-			/>
+			<CopyLatexButton latex={latex} />
 			<MathButton
 				icon="fraction"
 				label="Fraction"

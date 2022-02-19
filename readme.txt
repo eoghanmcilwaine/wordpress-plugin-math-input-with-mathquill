@@ -108,6 +108,7 @@ e.g.
 == Changelog ==
 
 = 0.2.2 =
+* Add toolbar buttons for superscript and subscript
 * Show an error message when the clipboard function isn't available
 
 = 0.2.1 =

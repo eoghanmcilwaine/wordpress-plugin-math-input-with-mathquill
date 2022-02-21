@@ -138,7 +138,7 @@ export default function Edit({ attributes, setAttributes }) {
 				showLatex={showLatex}
 				setShowLatex={setShowLatex}
 			/>
-			<p {...useBlockProps()}>
+			<p {...useBlockProps({ className: showLatex ? 'is-showing-latex' : '' })}>
 				<MathField
 					latex={latex}
 					setLatex={updateLatex}

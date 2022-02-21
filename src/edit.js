@@ -33,7 +33,7 @@ import SvgIcon from './SvgIcon';
 // import { buildFailureTestResult } from '@jest/test-result';
 
 
-const MathButton = ({ icon, label, onClick, insertion }) => {
+const MathButton = ({ icon, label, insertion, ...props }) => {
 	const handlers = insertion && {
 		onMouseDown: e => e.preventDefault()
 	};
@@ -42,7 +42,7 @@ const MathButton = ({ icon, label, onClick, insertion }) => {
 		<ToolbarButton
 			icon={<SvgIcon id={icon} />}
 			label={ __( label, 'core-block-custom-attributes' ) }
-			onClick={onClick}
+			{...props}
 			{...handlers}
 		/>
 	);
@@ -52,27 +52,16 @@ MathButton.defaultProps = {
 	insertion: true,
 };
 
-const CopyLatexButton = ({ latex }) => {
-	const isAvailable = !!navigator.clipboard;
-
-	return (
-		<MathButton
-			icon="copyLatex"
-			label={isAvailable ? "Copy LaTeX math to clipboard" : 'Sorry, clipboard is only available on https:// sites, in supported browsers'}
-			insertion={false}
-			onClick={() => {
-				if (isAvailable) {
-					navigator.clipboard.writeText(unwrapBlockDelims(latex))
-				}
-			}}
-		/>
-	)
-}
-
-const BlockControlsForMath = ({ callEditorMethod, latex }) => (
+const BlockControlsForMath = ({ callEditorMethod, showLatex, setShowLatex }) => (
 	<BlockControls group="inline">
 		<ToolbarGroup>
-			<CopyLatexButton latex={latex} />
+			<MathButton
+				icon="latex"
+				label={showLatex ? "Show LaTeX" : "Hide LaTeX"}
+				isActive={showLatex}
+				insertion={false}
+				onClick={() => setShowLatex(!showLatex)}
+			/>
 			<MathButton
 				icon="fraction"
 				label="Fraction"
@@ -128,6 +117,7 @@ const CopyableLatexString = ({ latex }) => {
  */
 export default function Edit({ attributes, setAttributes }) {
 	const [latex, setLatex] = useState(attributes.latex);
+	const [showLatex, setShowLatex] = useState(false);
 	const field = useRef();
 
 	const updateLatex = newLatex => {
@@ -143,14 +133,18 @@ export default function Edit({ attributes, setAttributes }) {
 
 	return (
 		<Fragment>
-			<BlockControlsForMath callEditorMethod={callEditorMethod} latex={latex} />
+			<BlockControlsForMath
+				callEditorMethod={callEditorMethod}
+				showLatex={showLatex}
+				setShowLatex={setShowLatex}
+			/>
 			<p {...useBlockProps()}>
 				<MathField
 					latex={latex}
 					setLatex={updateLatex}
 					updateRef={updateRef}
 				/>
-				<CopyableLatexString latex={latex} />
+				{showLatex && <CopyableLatexString latex={latex} />}
 			</p>
 		</Fragment>
 	);

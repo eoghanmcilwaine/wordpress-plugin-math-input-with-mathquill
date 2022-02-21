@@ -11,3 +11,13 @@
 		border: none;
 	}
 }
+
+.copyable-latex-string {
+	width: 100%;
+	padding: 0.5em;
+	background: var(--wp--preset--color--foreground);
+	color: var(--wp--preset--color--background);
+	opacity: 0.6;
+	white-space: pre-wrap;
+	margin: 0;
+}

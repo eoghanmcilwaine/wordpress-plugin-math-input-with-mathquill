@@ -57,7 +57,7 @@ const BlockControlsForMath = ({ callEditorMethod, showLatex, setShowLatex }) => 
 		<ToolbarGroup>
 			<MathButton
 				icon="latex"
-				label={showLatex ? "Show LaTeX" : "Hide LaTeX"}
+				label={showLatex ? "Hide LaTeX" : "Show LaTeX"}
 				isActive={showLatex}
 				insertion={false}
 				onClick={() => setShowLatex(!showLatex)}

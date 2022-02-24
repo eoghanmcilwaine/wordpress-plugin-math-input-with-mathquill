@@ -1,12 +1,12 @@
-=== Direct math input with MathQuill ===
-Contributors:      eoghanmcilwaine
-Donate link:       https://www.paypal.com/donate/?business=QYT8UT3FHC3VL&no_recurring=1&currency_code=EUR
-Tags:              block, math, LaTeX, MathQuill, equation, formula
-Tested up to:      5.9
-Stable tag:        0.2.3
-License:           GPL-2.0-or-later
-License URI:       https://www.gnu.org/licenses/gpl-2.0.html
-
+=== Direct math input with MathQuill ===  
+Contributors:      eoghanmcilwaine  
+Donate link:       https://www.paypal.com/donate/?business=QYT8UT3FHC3VL&no_recurring=1&currency_code=EUR  
+Tags:              block, math, LaTeX, MathQuill, equation, formula  
+Tested up to:      5.9  
+Stable tag:        0.2.3  
+License:           GPL-2.0-or-later  
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html  
+  
 
 == Description ==
 

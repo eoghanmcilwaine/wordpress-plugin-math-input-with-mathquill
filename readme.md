@@ -2,6 +2,7 @@
 Contributors:      eoghanmcilwaine  
 Donate link:       https://www.paypal.com/donate/?business=QYT8UT3FHC3VL&no_recurring=1&currency_code=EUR  
 Tags:              block, math, LaTeX, MathQuill, equation, formula  
+Requires at least: 5.0
 Tested up to:      5.9  
 Stable tag:        0.2.3  
 License:           GPL-2.0-or-later  
@@ -24,258 +25,57 @@ See the http://mathquill.com/ homepage for a visual demonstration of how to inpu
 
 Some common keyboard shortcuts are as follows:
 
-<table>
-<tr>
-<td>Key</td>
-<td>Action</td>
-</tr>
-<tr>
-<td>/</td>
-<td>Enter a new fraction, with focusable input areas for numerator and denominator</td>
-</tr>
-<tr>
-<td>^</td>
-<td>Enter a new superscript, e.g. to add an exponent  </td>
-</tr>
-<tr>
-<td>_</td>
-<td>Enter a new subscript </td>
-</tr>
-<tr>
-<td>(</td>
-<td>Open parentheses (which will scale based on the height of the content inside) Other parenthesis types behave similarly, e.g. [ and {</td>
-</tr>
-<tr>
-<td>\</td>
-<td>Start typing one of the control sequences below. When finished, press enter or space to see the resulting symbol.</td>
-</tr>
-</table>
+* / (forward slash)  Enter a new fraction, with focusable input areas for numerator and denominator
+* ^ (caret)  Enter a new superscript, e.g. to add an exponent
+* _ (underscore)  Enter a new subscript    
+* ( (open parentheses)  Open parentheses (which will scale based on the height of the content inside) Other parenthesis types behave similarly, e.g. [ and {
+* \ (backslash)  Start typing one of the control sequences below. When finished, press enter or space to see the resulting symbol
 
 
-Control sequences - type these in including the backslash, followed by enter: (not an exhaustive list)
+Control sequences - to create each symbol, type the full sequence (including the backslash) into the math editor, followed by
+space or enter. (not an exhaustive list)
 
-<table>
-<tr>
-<td>Sequence</td>
-<td>Symbol</td>
-<td>Description</td>
-</tr>
-<tr>
-<td>\plusminus</td>
-<td>±</td>
-<td>plus-or-minus</td>
-</tr>
-<tr>
-<td>\times</td>
-<td>×</td>
-<td>multiplication</td>
-</tr>
-<tr>
-<td>\alpha</td>
-<td>α</td>
-<td></td>
-</tr>
-<tr>
-<td>\beta</td>
-<td>β</td>
-<td></td>
-</tr>
-<tr>
-<td>\gamma</td>
-<td>γ</td>
-<td></td>
-</tr>
-<tr>
-<td>\delta</td>
-<td>δ</td>
-<td></td>
-</tr>
-<tr>
-<td>⋮</td>
-<td></td>
-<td>(etc. for the rest of the greek alphabet)</td>
-</tr>
-<tr>
-<td>\Alpha</td>
-<td>Α</td>
-<td></td>
-</tr>
-<tr>
-<td>\Beta</td>
-<td>Β</td>
-<td></td>
-</tr>
-<tr>
-<td>\Gamma</td>
-<td>Γ</td>
-<td></td>
-</tr>
-<tr>
-<td>\Delta</td>
-<td>Δ</td>
-<td></td>
-</tr>
-<tr>
-<td>⋮</td>
-<td></td>
-<td>(etc. for the rest of the greek alphabet)</td>
-</tr>
-<tr>
-<td>\summation</td>
-<td>∑</td>
-<td>Summation symbol, an uppercase sigma with input areas above and below</td>
-</tr>
-<tr>
-<td>\prod</td>
-<td>∏</td>
-<td>product symbol, an uppercase pi with input areas above and below (see also \coprod)</td>
-</tr>
-<tr>
-<td>\int</td>
-<td>∫</td>
-<td>integral symbol, a large ∫ with input areas above and below</td>
-</tr>
-<tr>
-<td>\sqrt</td>
-<td>√</td>
-<td>square root symbol, containing its own input area</td>
-</tr>
-<tr>
-<td>\nthroot</td>
-<td>√</td>
-<td>nth root symbol, with input areas for n and content</td>
-</tr>
-<tr>
-<td>\lt</td>
-<td>&lt;</td>
-<td></td>
-</tr>
-<tr>
-<td>\gt</td>
-<td>&gt;</td>
-<td></td>
-</tr>
-<tr>
-<td>\le</td>
-<td>≤</td>
-<td></td>
-</tr>
-<tr>
-<td>\ge</td>
-<td>≥</td>
-<td></td>
-</tr>
-<tr>
-<td>\approx</td>
-<td>≈</td>
-<td></td>
-</tr>
-<tr>
-<td>\doteq</td>
-<td>≐</td>
-<td></td>
-</tr>
-<tr>
-<td>\neq</td>
-<td>≠</td>
-<td></td>
-</tr>
-<tr>
-<td>\nless</td>
-<td>≮</td>
-<td></td>
-</tr>
-<tr>
-<td>\ngtr</td>
-<td>≯</td>
-<td></td>
-</tr>
-<tr>
-<td>\intersection</td>
-<td>∩</td>
-<td></td>
-</tr>
-<tr>
-<td>\union</td>
-<td>∪</td>
-<td></td>
-</tr>
-<tr>
-<td>\subset</td>
-<td>⊂</td>
-<td></td>
-</tr>
-<tr>
-<td>\superset</td>
-<td>⊃</td>
-<td></td>
-</tr>
-<tr>
-<td>\notsubset</td>
-<td>⊄</td>
-<td></td>
-</tr>
-<tr>
-<td>\nosuperset</td>
-<td>⊅</td>
-<td></td>
-</tr>
-<tr>
-<td>\subseteq</td>
-<td>⊆</td>
-<td></td>
-</tr>
-<tr>
-<td>\isin</td>
-<td>∈</td>
-<td></td>
-</tr>
-<tr>
-<td>\contains</td>
-<td>∋</td>
-<td></td>
-</tr>
-<tr>
-<td>\notcontains</td>
-<td>∌</td>
-<td></td>
-</tr>
-<tr>
-<td>\Complex</td>
-<td>ℂ</td>
-<td></td>
-</tr>
-<tr>
-<td>\Hamiltonian</td>
-<td>ℍ</td>
-<td></td>
-</tr>
-<tr>
-<td>\Imaginary</td>
-<td>ℑ</td>
-<td></td>
-</tr>
-<tr>
-<td>\Naturals</td>
-<td>ℕ</td>
-<td></td>
-</tr>
-<tr>
-<td>\Primes</td>
-<td>ℙ</td>
-<td>(also \Probability, \Projective, etc.)</td>
-</tr>
-<tr>
-<td>\Rationals</td>
-<td>ℚ</td>
-<td></td>
-</tr>
-<tr>
-<td>\Reals</td>
-<td>ℝ</td>
-<td></td>
-</tr>
-</table>
+* \plusminus
+* \times
+* \alpha
+* \beta
+* \gamma
+* \delta
+* \Alpha
+* \Beta
+* \Gamma
+* \Delta
+* \summation
+* \prod
+* \int
+* \sqrt
+* \nthroot
+* \lt
+* \gt
+* \le
+* \ge
+* \approx
+* \doteq
+* \neq
+* \nless
+* \ngtr
+* \intersection
+* \union
+* \subset
+* \superset
+* \notsubset
+* \nosuperset
+* \subseteq
+* \isin
+* \contains
+* \notcontains
+* \Complex
+* \Hamiltonian
+* \Imaginary
+* \Naturals
+* \Primes
+* \Rationals
+* \Reals
 
 
 == Frequently Asked Questions ==

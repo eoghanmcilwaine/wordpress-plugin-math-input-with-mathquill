@@ -3,7 +3,7 @@ Contributors:      eoghanmcilwaine
 Donate link:       https://www.paypal.com/donate/?business=QYT8UT3FHC3VL&no_recurring=1&currency_code=EUR
 Tags:              block, math, LaTeX, MathQuill, equation, formula
 Tested up to:      5.9
-Stable tag:        0.2.2
+Stable tag:        0.2.3
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,7 +93,7 @@ Control sequences - type these in including the backslash, followed by enter: (n
 <tr>
 <td>⋮</td>
 <td></td>
-<td></td>
+<td>(etc. for the rest of the greek alphabet)</td>
 </tr>
 <tr>
 <td>\Alpha</td>
@@ -118,7 +118,7 @@ Control sequences - type these in including the backslash, followed by enter: (n
 <tr>
 <td>⋮</td>
 <td></td>
-<td></td>
+<td>(etc. for the rest of the greek alphabet)</td>
 </tr>
 <tr>
 <td>\summation</td>

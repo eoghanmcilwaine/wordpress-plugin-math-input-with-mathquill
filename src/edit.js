@@ -1,5 +1,6 @@
 import { useCallback, useState, useRef, Fragment } from '@wordpress/element';
-import { BlockControls } from '@wordpress/block-editor';
+import { useDispatch } from '@wordpress/data';
+import { BlockControls, store as blockEditorStore } from '@wordpress/block-editor';
 import {
 	ToolbarGroup,
 	ToolbarButton,
@@ -115,10 +116,13 @@ const CopyableLatexString = ({ latex }) => {
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit({ attributes, setAttributes }) {
+export default function Edit({ attributes, clientId, setAttributes }) {
 	const [latex, setLatex] = useState(attributes.latex);
 	const [showLatex, setShowLatex] = useState(false);
+	const { removeBlocks } = useDispatch(blockEditorStore);
 	const field = useRef();
+
+	const removeThisBlock = useCallback(() => removeBlocks(clientId));
 
 	const updateLatex = newLatex => {
 		setLatex(newLatex);
@@ -143,6 +147,7 @@ export default function Edit({ attributes, setAttributes }) {
 					latex={latex}
 					setLatex={updateLatex}
 					updateRef={updateRef}
+					removeThisBlock={removeThisBlock}
 				/>
 				{showLatex && <CopyableLatexString latex={latex} />}
 			</p>

@@ -145,7 +145,7 @@ export default function Edit({ attributes, clientId, setAttributes }) {
 			<p {...useBlockProps({ className: showLatex ? 'is-showing-latex' : '' })}>
 				<MathField
 					latex={latex}
-					setLatex={updateLatex}
+					updateLatex={updateLatex}
 					updateRef={updateRef}
 					removeThisBlock={removeThisBlock}
 				/>

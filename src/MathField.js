@@ -2,7 +2,7 @@ import { useMemo } from '@wordpress/element';
 import { EditableMathField } from 'react-mathquill'
 import { unwrapBlockDelims, wrapBlockDelims } from './utils';
 
-const MathField = ({ latex, setLatex, updateRef, removeThisBlock }) => {
+const MathField = ({ latex, updateLatex, updateRef, removeThisBlock }) => {
   const content = useMemo(() => unwrapBlockDelims(latex), [latex]);
 
   const config = useMemo(() => ({
@@ -18,7 +18,7 @@ const MathField = ({ latex, setLatex, updateRef, removeThisBlock }) => {
       latex={content}
       config={config}
       onChange={(mathField) => {
-        setLatex(wrapBlockDelims(mathField.latex()))
+        updateLatex(wrapBlockDelims(mathField.latex()))
       }}
       mathquillDidMount={updateRef}
     />

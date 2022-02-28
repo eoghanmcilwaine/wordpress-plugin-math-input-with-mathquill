@@ -1,17 +1,21 @@
-import { useMemo } from '@wordpress/element';
+import { useCallback, useMemo } from '@wordpress/element';
 import { EditableMathField } from 'react-mathquill'
 import { unwrapBlockDelims, wrapBlockDelims } from './utils';
 
 const MathField = ({ latex, updateLatex, updateRef, removeThisBlock }) => {
   const content = useMemo(() => unwrapBlockDelims(latex), [latex]);
 
-  const config = useMemo(() => ({
+  const deleteOutOf = useCallback((__dir, mathField) => {
+    if (mathField.latex() === '') {
+      removeThisBlock();
+    }
+  }, [removeThisBlock]);
+
+  const config = {
     handlers: {
-      deleteOutOf: () => {
-        if (content === '') removeThisBlock();
-      },
+      deleteOutOf,
     },
-  }), [content, removeThisBlock]);
+  };
 
   return (
     <EditableMathField

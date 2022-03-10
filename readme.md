@@ -4,7 +4,7 @@ Donate link:       https://www.paypal.com/donate/?business=QYT8UT3FHC3VL&no_recu
 Tags:              block, math, LaTeX, MathQuill, equation, formula  
 Requires at least: 5.0
 Tested up to:      5.9  
-Stable tag:        0.2.3  
+Stable tag:        0.2.4
 License:           GPL-2.0-or-later  
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html  
   
@@ -101,6 +101,10 @@ e.g.
 1. Using the "Direct math input" block to insert some equations.
 
 == Changelog ==
+
+= 0.2.4 =
+* Apply background color to empty selected block
+* Allow keyboard deletion of block
 
 = 0.2.3 =
 * Change LaTeX button to show copyable LaTeX
